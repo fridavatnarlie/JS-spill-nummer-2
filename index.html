@@ -15,7 +15,30 @@
         <img id="ufo" src="bilder/ufo.png" alt="">
     </div>
 
-    <script src="script.js"></script>
+    
+    <script src="script.js">
+
+        /* Defenisjoner */
+        const bakgrunnElm = document.getElementById("bakgrunn");
+        const nautElm = document.getElementById("astronaut");
+        const ufoElm = document.getElementById("ufo");
+
+        /* Astronauten */
+        let nautPosition = 180;
+        let nautHastighet = 0;
+        let steglengde = 5;
+        const skjermbredde = bakgrunnElm.offsetWidth;
+        const skjermhøyde = bakgrunnElm.offsetHeight;
+        const nautbredde = nautElm.offsetWidth;
+
+        /* Ufo */
+        let ufoTop = 0;
+        let ufoVenstrekant = Math.random() * (skjermbredde - 40);
+        const fallHastighet = 5;
+
+       
+
+    </script>
     
 </body>
 </html>
