@@ -1,67 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title> Spill </title>
-
+    <title>Spill</title>
 </head>
 
 <body>
 
     <div id="bakgrunn">
-        <img id="astronaut" src="bilder/naut.png" alt="">
-        <img id="ufo" src="bilder/ufo.png" alt="">
+        <img id="astronaut" src="bilder/naut.png" alt="Astronaut">
+        <img id="ufo1" src="bilder/ufo.png" alt="UFO">
+        <img id="ufo2" src="bilder/ufo2.png" alt="UFO">
+        <img id="ufo3" src="bilder/ufo3.png" alt="UFO">
     </div>
 
-    
-    <script src="script.js">
+    <script src="script.js"></script>
 
-        /* Defenisjoner */
-        const bakgrunnElm = document.getElementById("bakgrunn");
-        const nautElm = document.getElementById("astronaut");
-        const ufoElm = document.getElementById("ufo");
-
-        /* Astronauten */
-        let nautPosition = 180;
-        let nautHastighet = 0;
-        let steglengde = 5;
-        const skjermbredde = bakgrunnElm.offsetWidth;
-        const skjermhøyde = bakgrunnElm.offsetHeight;
-        const nautbredde = nautElm.offsetWidth;
-
-        /* Ufo */
-        let ufoTop = 0;
-        let ufoVenstrekant = Math.random() * (skjermbredde - 40);
-        const fallHastighet = 5;
-        
-        function startSpill(){
-            if (intFall == null){
-                intFall = setInterval(fall, 20);
-                intFlytt = setInterval(flytt, 13);
-                musikkBakgrunn.loop = true;
-                musikkBakgrunn.play()
-                console.log("Spillet er startet");
-            }
-        }
-        
-        document.addEventListener('keydown', (event) =>{
-            startspill();
-
-            if (event.key === "ArrowLeft"){
-                nautHastighet = - steglengde;
-            }
-            else if (event.key === "ArrowRight"){
-                nautHastighet = steglengde;
-            }
-        });
-
-
-
-
-
-    
-    
 </body>
 </html>
+
