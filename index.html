@@ -35,10 +35,33 @@
         let ufoTop = 0;
         let ufoVenstrekant = Math.random() * (skjermbredde - 40);
         const fallHastighet = 5;
+        
+        function startSpill(){
+            if (intFall == null){
+                intFall = setInterval(fall, 20);
+                intFlytt = setInterval(flytt, 13);
+                musikkBakgrunn.loop = true;
+                musikkBakgrunn.play()
+                console.log("Spillet er startet");
+            }
+        }
+        
+        document.addEventListener('keydown', (event) =>{
+            startspill();
 
-       
+            if (event.key === "ArrowLeft"){
+                nautHastighet = - steglengde;
+            }
+            else if (event.key === "ArrowRight"){
+                nautHastighet = steglengde;
+            }
+        });
 
-    </script>
+
+
+
+
+    
     
 </body>
 </html>
