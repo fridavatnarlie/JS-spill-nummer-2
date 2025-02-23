@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const bakgrunnElm = document.getElementById("bakgrunn");
     const nautElm = document.getElementById("astronaut");
     const poengtellerElm = document.getElementById("poengteller");
+    const timerElm = document.getElementById("timer");
+    const gameoverElm = document.getElementById("gameover");
+
+    gameoverElm.style.display = "none";
 
     const ufoElms = [
         document.getElementById("ufo1"),
@@ -12,10 +16,33 @@ document.addEventListener("DOMContentLoaded", function() {
     ];
 
     const laserElm = document.createElement("div"); 
-    laserElm.id = "laser"; // Sett ID for laseren
+    laserElm.id = "laser";
     bakgrunnElm.appendChild(laserElm); 
 
     let poeng = 0;
+    let gameover = false;
+    let tid = 10;
+
+    let tidInterval = setInterval(function() {
+        if (tid > 0) {
+            tid--
+    
+            let minutter = Math.floor(tid / 60);
+            let sekunder = tid % 60;
+    
+            let sekunderTekst = sekunder < 10 ? "0" + sekunder : sekunder; // Legger til 0 foran hvis sekunder er under 10
+            timerElm.textContent = minutter + ":" + sekunderTekst;
+        } 
+        else {
+            clearInterval(tidInterval);
+            gameover = true;
+            gameoverElm.style.display = "block";
+            const tilbakeElm = document.getElementById("tilbake");
+                tilbakeElm.textContent = "Tilbake til forsiden";
+
+                tilbakeElm.addEventListener("click", tilbake);
+        }
+    }, 1000);
 
     /* Astronaut */
     let nautPosition = 180;
@@ -119,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
             ufoElm.style.display = "block"; // Vises på skjermen
     
             setTimeout(function() {
-                ufoElm.style.display = "none"; // 6000 millisekunder = 6 sekunder
-            }, 6000);
+                ufoElm.style.display = "none"; // 10000 millisekunder = 10 sekunder
+            }, 10000);
         }, Math.random() * 5000 + 2000); // Mathrandom gir verdi 0-1
     }
     
