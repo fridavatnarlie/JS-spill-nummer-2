@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let intFlytt = null;
 
     function startSpill() {
-        if (intFlytt === null && !gameover) { // hvis det er ingen "spillbevegelse" og det er ikke gameover (!) skjer:
+        if (intFlytt === null && !gameover) { // hvis det er ingen "spillbevegelse" og det er ikke gameover (!) skjer følgende:
             intFlytt = setInterval(flytt, 13);
             musikkBakgrunn.loop = true;
             musikkBakgrunn.play()
