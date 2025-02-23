@@ -37,10 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(tidInterval);
             gameover = true;
             gameoverElm.style.display = "block";
-            const tilbakeElm = document.getElementById("tilbake");
-                tilbakeElm.textContent = "Tilbake til forsiden";
 
-                tilbakeElm.addEventListener("click", tilbake);
+            skjulUFOer();
+
+            const tilbakeElm = document.getElementById("tilbake");
+            tilbakeElm.textContent = "Tilbake til forsiden";
+            tilbakeElm.addEventListener("click", tilbake);
+            
         }
     }, 1000);
 
