@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let poeng = 0;
     let gameover = false;
-    let tid = 10;
+    let tid = 120;
 
     let tidInterval = setInterval(function() {
         if (tid > 0) {
@@ -53,7 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const tilbakeElm = document.getElementById("tilbake");
             tilbakeElm.textContent = "Tilbake til forsiden";
-            tilbakeElm.addEventListener("click", tilbake);
+
+            tilbakeElm.addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
 
         }
     }, 1000);

@@ -1,44 +1,36 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Redd månen! </title>
     <link rel="stylesheet" href="style.css">
-    <title> Fang UFOene </title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="forside.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Press+Start+2P&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Press+Start+2P&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Press+Start+2P&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sixtyfour+Convergence&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <div id="boks">
+        <h1>Velkommen til Redd Månen!</h1>
+        <p>
+            Spilleregler:<br>
+            1. Bruk piltastene for å bevege astronauten.<br>
+            2. Skyt ufoene med laser ved å trykke på spacebaren.<br>
+            3. Du har 2 minutter til å fange så mange UFOer som mulig!
+        </p>
 
-    <div id="bakgrunn">
-        <img id="astronaut" src="bilder/naut.png" alt="Astronaut">
-        <img id="ufo1" src="bilder/ufo.png" alt="UFO">
-        <img id="ufo2" src="bilder/ufo2.png" alt="UFO">
-        <img id="ufo3" src="bilder/ufo3.png" alt="UFO">
+        <button onclick="startSpillet()"> Start spillet </button>
     </div>
 
-    <div id="poengteller"> Poeng: 0 </div>
-
-    <div id="timer"> 2:00 </div>
-
-    <div id="gameover">GAME OVER</div>
-
-    <div id="tilbake"></div>
-
-    <script src="script.js"></script>
-
+    <script>
+        function startSpillet() {
+            window.location.href = "spill.html";
+        }
+    </script>
+    
 </body>
 </html>
-
