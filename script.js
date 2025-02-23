@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("ufo3")
     ];
 
+    const musikkBakgrunn = new Audio("musikk/bakgrunn.mp3")
+    const musikkGameover = new Audio("musikk/gameover.mp3")
+
     const laserElm = document.createElement("div"); 
     laserElm.id = "laser";
     bakgrunnElm.appendChild(laserElm); 
@@ -42,11 +45,16 @@ document.addEventListener("DOMContentLoaded", function() {
             nautHastighet = 0;
 
             // Stopper UFO spawning
-            clearInterval(spawnUFOInterval);
+            clearInterval(spawnUFOInterval)
+            
+            musikkBakgrunn.pause()
+            musikkBakgrunn.currentTime = 0;
+            musikkGameover.play()
 
             const tilbakeElm = document.getElementById("tilbake");
             tilbakeElm.textContent = "Tilbake til forsiden";
             tilbakeElm.addEventListener("click", tilbake);
+
         }
     }, 1000);
 
@@ -62,6 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function startSpill() {
         if (intFlytt === null && !gameover) {
             intFlytt = setInterval(flytt, 13);
+            musikkBakgrunn.loop = true;
+            musikkBakgrunn.play()
             console.log("Spillet er startet");
         }
     }
