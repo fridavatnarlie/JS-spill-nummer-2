@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let tidInterval = setInterval(function() {
         if (tid > 0) {
-            tid--
+            tid--;
     
             let minutter = Math.floor(tid / 60);
             let sekunder = tid % 60;
@@ -34,16 +34,19 @@ document.addEventListener("DOMContentLoaded", function() {
             timerElm.textContent = minutter + ":" + sekunderTekst;
         } 
         else {
-            clearInterval(tidInterval);
+            clearInterval(tidInterval);  // Stopper tiden
             gameover = true;
             gameoverElm.style.display = "block";
 
-            skjulUFOer();
+            // Stopper astronauten
+            nautHastighet = 0;
+
+            // Stopper UFO spawning
+            clearInterval(spawnUFOInterval);
 
             const tilbakeElm = document.getElementById("tilbake");
             tilbakeElm.textContent = "Tilbake til forsiden";
             tilbakeElm.addEventListener("click", tilbake);
-            
         }
     }, 1000);
 
@@ -56,9 +59,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let intFlytt = null;
 
-
     function startSpill() {
-        if (intFlytt === null) {
+        if (intFlytt === null && !gameover) {
             intFlytt = setInterval(flytt, 13);
             console.log("Spillet er startet");
         }
@@ -66,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /* Kontroller astronauten */
     document.addEventListener('keydown', (event) => {
+        if (gameover) return;  // Hvis game over, stopp bevegelse
+        
         startSpill();
         
         if (event.key === "ArrowLeft") {
@@ -100,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
         laserElm.style.left = nautPosition + nautbredde / 2 - 2.5 + "px"; // Plasser laser ved astronauten
         laserElm.style.top = nautElm.offsetTop - 20 + "px"; // Plasser laser like over astronauten
 
-        // Flytt laseren oppover
         let laserTop = parseInt(laserElm.style.top);
 
         let laserInterval = setInterval(function() {
@@ -139,30 +142,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    let spawnUFOInterval;
+
     function spawnUFO(ufoElm) {
-        setInterval(function() {
+        spawnUFOInterval = setInterval(function() {
+            if (gameover) return; // Hvis game over, stopp spawning
+            
             let randomX = Math.random() * (skjermbredde - 100);
             let randomY = Math.random() * (window.innerHeight / 2); // Halve skjermen så UFO ikke kommer oppå planeten
     
             ufoElm.style.left = randomX + "px";
             ufoElm.style.top = randomY + "px";
-            ufoElm.style.display = "block"; // Vises på skjermen
+            ufoElm.style.display = "block"; // block = vises
     
             setTimeout(function() {
                 ufoElm.style.display = "none"; // 10000 millisekunder = 10 sekunder
             }, 10000);
         }, Math.random() * 5000 + 2000); // Mathrandom gir verdi 0-1
     }
-    
+
     spawnUFO(ufo1);
     spawnUFO(ufo2);
     spawnUFO(ufo3);
-    
 
 });
-
-
-
-
-
-   
