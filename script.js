@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let poeng = 0;
     let gameover = false;
-    let tid = 120;
+    let tid = 60;
 
     const ufoElms = [
         document.getElementById("ufo1"),
